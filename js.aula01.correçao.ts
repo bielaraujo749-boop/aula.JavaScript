@@ -1,9 +1,9 @@
 const nomeTurma: string = "JavaScript Básico";
-const totalAlunos: number = 29;
+const totalAlunos: number = 10;
 let somaNotas: number = 0;
 
 for (let i = 0; i < totalAlunos; i++) {
-const notaAtual = 8.5 * 1.5;
+const notaAtual = 8.5;
 somaNotas += notaAtual;
 }
 
@@ -24,9 +24,9 @@ console.log(`A média da turma foi: ${media}`);
 
 let regressiva = 5;
 while (regressiva > 0) {
-    console.log(`Encerrando o sistema em ${regressiva} ...`)
-}
-
-console.log(`Sua média é de ${media}. Você está ${statusturma}`)
+    console.log(`Encerrando o sistema em ${regressiva} ...`);
+    regressiva -= 1;
+} 
+console.log(`Acabou a palhaçada!`);
 
 
