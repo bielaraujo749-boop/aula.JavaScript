@@ -1,0 +1,150 @@
+/* Configurações básicas de reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: fantasy;
+}
+
+/* Cor de fundo suave da página */
+body {
+  background-color: #bec8d0; 
+  color: #9d9999;
+}
+
+/* CABEÇALHO AMARELO */
+.header-container {
+  background-color: #1f52d4; 
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #000000;
+}
+
+/* Título "Minha Loja" */
+.main-title {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-family: fantasy;
+}
+
+/* Links do menu */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #332200;
+  font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* TÍTULO "Produtos em Destaque" */
+.section-title {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #1c2b46;
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+
+/* ==========================================================================
+ALTERAÇÃO 1: CONTAINER DOS CARDS COM CSS GRID (PADRÃO MOBILE-FIRST)
+==========================================================================
+Definimos que, por padrão (em telas pequenas/celular), o grid terá apenas 1 coluna.
+*/
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna ocupando todo o espaço (Mobile) */
+  gap: 20px;                  /* Espaçamento entre as linhas/colunas */
+  padding: 20px;
+  max-width: 1200px;          /* Impede que o layout estique infinitamente em telas gigantes */
+  margin: 0 auto;             /* Centraliza o container na tela */
+}
+
+/* ESTILO DO LINK QUE ENVOLVE O CARD */
+.card-link {
+  text-decoration: none; 
+  color: inherit;        
+  display: block;        
+}
+
+/* OS CARDS MARRONS */
+.product-card {
+  background-color: #3696bc; 
+  width: 100%;       /* ALTERAÇÃO 2: Mudou de 260px para 100% para se ajustar à coluna do Grid */
+  min-height: 340px; 
+  border-radius: 12px;
+  padding: 20px 15px;
+  color: #1a1008; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  
+  /* Alinhamento interno (continua Flexbox para alinhar os textos de cima para baixo, o que é ótimo!) */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  overflow: hidden;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* EFEITO AO PASSAR O MOUSE NO CARD */
+.card-link:hover .product-card {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+  cursor: pointer; 
+}
+
+/* IMAGEM DENTRO DO CARD */
+.card-img {
+  width: 100%;             
+  height: 450px;           
+  object-fit: cover;       
+  border-radius: 6px;      
+  margin-bottom: 10px;     
+  display: block;
+}
+
+/* Estilização interna dos textos do Card */
+.product-card h3 {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.product-card .description {
+  font-size: 1rem;
+}
+
+.product-card .price {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+ALTERAÇÃO 3: MEDIA QUERIES COM MIN-WIDTH (RESPONSIVIDADE PROGRESSIVA)
+==========================================================================
+*/
+
+/* Breakpoint para Tablet (telas a partir de 768px de largura) */
+@media (min-width: 768px) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr); /* Transiciona para 2 colunas */
+    gap: 30px;                             /* Aumenta um pouco o espaçamento */
+  }
+}
+
+/* Breakpoint para Desktop (telas a partir de 1024px de largura) */
+@media (min-width: 1024px) {
+  .products-container {
+    grid-template-columns: repeat(3, 1fr); /* Transiciona para 3 colunas */
+    gap: 40px;                             /* Espaçamento final de desktop */
+  }
+}
