@@ -6,7 +6,8 @@
     , initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="corpo">
+    <button id="clique-em-mim" onclick="mostrarNoConsole()">Clique em mim</button>
     <section>
     <form id="meuFormulario">
         <div>
@@ -24,4 +25,14 @@
     </form>
     
 </body>
+<script>
+    function mostrarNoConsole(event) {
+        console.log(event);
+        console.count ("fui clicado");
+        const corpo = document.getElementById("corpo");
+        corpo.style.backgroundColor = "#b3ebf2";
+    }
+    const botao = document.querySelector("#clique-em-mim");
+    botao.addEventListener("click", mostrarNoConsole);
+</script>
 </html>
